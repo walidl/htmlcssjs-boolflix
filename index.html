@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Moment js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <!-- JS: HANDLEBARS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js" charset="utf-8"></script>
+      <!-- template -->
+    <script id="film-template" type="text/x-handlebars-template">
+
+      <ul class="film">
+        <li> Titolo: {{ titolo }}</li>
+        <li> Titolo Originale: {{ ogTitolo }} </li>
+         <li> Lingua: {{#if flag}} <img  class= "flag" src="{{ flag }}" alt=""> {{/if}} {{#if lingua }}  {{ lingua }} {{/if}}</li>
+        <li class="stars"> Voto:({{ rating }}) <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></li>
+
+      </ul>
+      <hr>
+
+    </script>
+    <script id="pages-template" type="text/x-handlebars-template">
+
+      <div class="page-num"> {{ number }} </div>
+
+    </script>
+
+    <!-- My style & script -->
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" charset="utf-8"></script>
+
+    <title></title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="">
+        <input id="search-input"type="text" name="" value="matrix">
+        <button id="search-button"type="button" name="button"> Search </button>
+
+      </div>
+
+      <div class="pages">
+
+      </div>
+      <div class="filmList">
+
+
+      </div>
+    </div>
+
+  </body>
+</html>
