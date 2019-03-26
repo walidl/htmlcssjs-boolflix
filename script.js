@@ -49,7 +49,7 @@ function checkLength(string){
     return newString + "(...)"
 
   }
-  
+
   return  string;
 }
 
@@ -139,15 +139,17 @@ function apiCall(search,page,type){
 
     success: function(inData, stato){
 
-      if(page == "" &&  inData.total_pages > 1 && type == "movie"){
+      if(page == "" &&  inData.total_pages > 1 ){
         genPages(inData.total_pages);
       }
 
-      if (type == "movie" && ( page == inData.total_pages  || inData.total_pages == 1 || inData.total_results == 0 )){
-        apiCall(search,"","tv");
+      if( type == "movie" && inData.total_results == 0 ){
+
+        $("#tvFolder").click();
+        $("#movieFolder").hide();
       }
 
-      console.log(inData.results);
+      console.log(type , inData.page , inData.results.length );
       if(inData.total_results > 0){
 
         getResults(inData.results,type);
@@ -177,19 +179,28 @@ function genPages(pageNum){
 
     pages.append(pNum);
   }
+
   pages.children(".page-num").eq(0).addClass("current")
 }
 
 function clickPage(){
 
   var pages = $(".pages");
-
+  var m = $("#movieFolder");
+  var t = $("#tvFolder");
   pages.on("click",".page-num",function(){
 
     var pag = parseInt($(this).text(),10);
 
     $(".filmList").empty()
-    apiCall( $("#search-input").val(), pag , "movie");
+
+    if(m.hasClass("active")){
+
+      apiCall( $("#search-input").val(), pag , "movie");
+    }
+    else if(t.hasClass("active")){
+      apiCall( $("#search-input").val(), pag , "tv");
+    }
 
     pages.children().removeClass("current");
     $(this).addClass("current");
@@ -197,11 +208,35 @@ function clickPage(){
 
 }
 
-function getVal(elem){
+function getVal(type){
 
+  var srcImp = $("#search-input");
   $(".filmList").empty();
   $(".pages").empty();
-  apiCall(elem.val(),"","movie")
+  apiCall(srcImp.val(),"",type);
+}
+
+function selectFolder(){
+
+  var section = $(".folders .sezione");
+
+  section.click(function(){
+
+    if( $(this).is("#movieFolder") ){
+
+      $("#tvFolder").removeClass("active")
+      $(this).addClass("active");
+      getVal("movie");
+
+    }
+    else if ( $(this).is("#tvFolder") ){
+
+      $("#movieFolder").removeClass("active")
+      $(this).addClass("active");
+      getVal("tv");
+
+    }
+  })
 }
 
 
@@ -219,21 +254,37 @@ function hoverItem(){
   })
 
 }
+
+function setUpFolders(fold){
+
+  fold.children("#movieFolder").addClass("active");
+  fold.children("#tvFolder").removeClass("active");
+  fold.children(".sezione").show();
+  // fold.show();
+}
+
 function init(){
 
+  // var srcBtn = $("#search-button");
   var srcImp = $("#search-input");
-  var srcBtn = $("#search-button");
-
+  var folders = $(".folders");
+  // folders.hide();
   srcImp.keyup(function(e){
 
-    if(e.keyCode == 13 ){getVal(srcImp);}
+    if(e.keyCode == 13 ){
+
+      setUpFolders(folders)
+      getVal("movie");
+    }
   });
 
-  srcBtn.click(function(){
+  // srcBtn.click(function(){
+  //
+  //   setUpFolders(folders)
+  //   getVal("movie");
+  // })
 
-    getVal(srcImp);
-  })
-
+  selectFolder()
   clickPage();
   hoverItem();
 }
