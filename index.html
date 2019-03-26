@@ -14,15 +14,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js" charset="utf-8"></script>
       <!-- template -->
     <script id="film-template" type="text/x-handlebars-template">
+      <div class="item">
+        <div>
+           <img  class= "poster" src="{{ poster }}">  
+        </div>
+        <ul class="info {{tipo}}">
+          <li> Titolo: {{ titolo }}</li>
+          <li> Titolo Originale: {{ ogTitolo }} </li>
+           <li> Lingua: {{#if flag}} <img  class= "flag" src="{{ flag }}"> {{/if}} {{#if lingua }}  {{ lingua }} {{/if}}</li>
+          <li class="stars"> Voto:({{ rating }}) <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></li>
 
-      <ul class="film">
-        <li> Titolo: {{ titolo }}</li>
-        <li> Titolo Originale: {{ ogTitolo }} </li>
-         <li> Lingua: {{#if flag}} <img  class= "flag" src="{{ flag }}" alt=""> {{/if}} {{#if lingua }}  {{ lingua }} {{/if}}</li>
-        <li class="stars"> Voto:({{ rating }}) <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></li>
-
-      </ul>
-      <hr>
+        </ul>
+    </div>
 
     </script>
     <script id="pages-template" type="text/x-handlebars-template">
@@ -41,7 +44,7 @@
   <body>
     <div class="container">
       <div class="">
-        <input id="search-input"type="text" name="" value="matrix">
+        <input id="search-input"type="text" name="" value="star trek">
         <button id="search-button"type="button" name="button"> Search </button>
 
       </div>

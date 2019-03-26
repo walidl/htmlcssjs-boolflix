@@ -11,38 +11,73 @@ a, a:hover{
   text-decoration: none;
 }
 
+ul{
+  list-style: none;
+}
+
 .container{
+
   width: 80%;
   margin: auto;
+  padding-top: 10px;
 
 }
 
-.film{
-
+.item{
+  display: flex;
   margin: 10px 0;
+  width: 100%;
 }
-.film .flag{
+
+.info{
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px  ;
+  font-size: 20px;
+  width: calc(100% - 154px)
+}
+
+.info li {
+  margin: 5px 0;
+}
+
+.info.film{
+
+  background-color: #F5F9FF
+}
+
+.info.tv-show{
+
+  background-color: #f7ead9
+}
+.info .flag{
   height: 18px;
 }
 
 .pages{
+
   margin-top: 10px;
   display: flex;
 }
+
 .pages .page-num{
 
   width: 20px;
   height: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  line-height: 20px;
+  font-size: 14px;
+  text-align: center;
   border: 1px solid black;
   margin-right: 3px;
   cursor: pointer
 }
 
 .pages .page-num.current{
-  background-color: azure;
+
+  background-color:cadetblue;
+  color: white;
   pointer-events: none
 }
 
