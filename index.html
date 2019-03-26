@@ -15,16 +15,18 @@
       <!-- template -->
     <script id="film-template" type="text/x-handlebars-template">
       <div class="item">
-        <div>
-           <img  class= "poster" src="{{ poster }}">  
+        <div class=" front">
+           {{#if poster }}<img  class= "poster" src="{{ poster }}"> {{else}} <h2>{{ titolo }}</h2> {{/if}}
         </div>
-        <ul class="info {{tipo}}">
-          <li> Titolo: {{ titolo }}</li>
-          <li> Titolo Originale: {{ ogTitolo }} </li>
-           <li> Lingua: {{#if flag}} <img  class= "flag" src="{{ flag }}"> {{/if}} {{#if lingua }}  {{ lingua }} {{/if}}</li>
-          <li class="stars"> Voto:({{ rating }}) <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></li>
-
-        </ul>
+        <div class= "back">
+          <ul class="info {{tipo}}">
+            <li> <span class="etichetta">Titolo: </span> {{ titolo }}</li>
+            <li> <span class="etichetta">Titolo Originale: </span> {{ ogTitolo }} </li>
+             <li> <span class="etichetta">Lingua: </span> {{#if flag}} <img  class= "flag" src="{{ flag }}"> {{/if}} {{#if lingua }}  {{ lingua }} {{/if}}</li>
+            <li class="stars"> <span class="etichetta">Voto: </span>({{ rating }}) <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></li>
+            {{#if desc}}<li> <span class="etichetta">Overview </span><p class="desc">{{desc}} </p></li>{{/if}}
+          </ul>
+        </div>
     </div>
 
     </script>
@@ -43,11 +45,11 @@
   </head>
   <body>
     <div class="container">
-      <div class="">
+      <nav>
         <input id="search-input"type="text" name="" value="star trek">
         <button id="search-button"type="button" name="button"> Search </button>
 
-      </div>
+      </nav>
 
       <div class="pages">
 

@@ -8,7 +8,7 @@ function printFilms(data,voto){
   var item = $(film);
 
   // riempimento stelle
-  
+
   var stars = item.find("li.stars").children(".fa-star");
 
   for (var i = 0; i < voto; i++) {
@@ -39,6 +39,20 @@ function getFlag(lang){
   }
 }
 
+function checkLength(string){
+
+  if ( string.length > 400){
+    var newString = ""
+    for (var i = 0; i < 400; i++) {
+      newString += string[i];
+    }
+    return newString + "(...)"
+
+  }
+  
+  return  string;
+}
+
 // la funzione mi prepara i dati da passare a handlebars nei vari casi per
 // tv/movie - poster - bandiera/codice-lingua
 
@@ -51,17 +65,17 @@ function getResults(list,type){
     var dati = {
 
       rating: voto,
+      desc: checkLength(item.overview)
     }
 
     //gestione poster
 
     if (item.poster_path != null){
 
-      dati.poster = "https://image.tmdb.org/t/p/w154/" + item.poster_path;
+      dati.poster = "https://image.tmdb.org/t/p/w300/" + item.poster_path;
     }
     else{
-
-      dati.poster = "img/no-image.jpg"
+      dati.poster = ""
     }
 
 
@@ -190,6 +204,21 @@ function getVal(elem){
   apiCall(elem.val(),"","movie")
 }
 
+
+function hoverItem(){
+
+  $(".filmList").on("click",".item",function(){
+
+    if($(this).hasClass("flipped")){
+      $(this).removeClass("flipped")
+    }
+    else{
+      $(".filmList .item").removeClass("flipped")
+      $(this).addClass("flipped")
+    }
+  })
+
+}
 function init(){
 
   var srcImp = $("#search-input");
@@ -206,6 +235,7 @@ function init(){
   })
 
   clickPage();
+  hoverItem();
 }
 
 $(document).ready(init)
