@@ -14,7 +14,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js" charset="utf-8"></script>
       <!-- template -->
     <script id="film-template" type="text/x-handlebars-template">
-      <div class="item">
+      <div class="item data-id='{{ id }}'">
         <div class=" front">
            {{#if poster }}<img  class= "poster" src="{{ poster }}"> {{else}} <h2>{{ titolo }}</h2> {{/if}}
         </div>
@@ -49,7 +49,7 @@
           <div class="bar">
             <a class= "logo" href="#"><img src="img/logo.png"></a>
             <!-- <button id="search-button"type="button" name="button"> Search </button> -->
-            <input id="search-input"type="text" name="" value="star trek">
+            <input id="search-input"type="text" name="" placeholder="Film , Tv-show"  value="matrix">
 
           </div>
       </div>
@@ -69,7 +69,7 @@
 
         </div>
         <div class="filmList">
-
+          <h1>Lista film</h1>
 
         </div>
 

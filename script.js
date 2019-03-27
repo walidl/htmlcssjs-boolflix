@@ -64,6 +64,7 @@ function getResults(list,type){
     var voto = Math.ceil(item.vote_average/2);
     var dati = {
 
+      id: item.id,
       rating: voto,
       desc: checkLength(item.overview)
     }
@@ -240,7 +241,7 @@ function selectFolder(){
 }
 
 
-function hoverItem(){
+function clickItem(){
 
   $(".filmList").on("click",".item",function(){
 
@@ -260,15 +261,15 @@ function setUpFolders(fold){
   fold.children("#movieFolder").addClass("active");
   fold.children("#tvFolder").removeClass("active");
   fold.children(".sezione").show();
-  // fold.show();
+  fold.css("pointer-events","auto")
 }
 
 function init(){
 
-  // var srcBtn = $("#search-button");
+
   var srcImp = $("#search-input");
   var folders = $(".folders");
-  // folders.hide();
+
   srcImp.keyup(function(e){
 
     if(e.keyCode == 13 ){
@@ -278,15 +279,9 @@ function init(){
     }
   });
 
-  // srcBtn.click(function(){
-  //
-  //   setUpFolders(folders)
-  //   getVal("movie");
-  // })
-
   selectFolder()
   clickPage();
-  hoverItem();
+  clickItem();
 }
 
 $(document).ready(init)
