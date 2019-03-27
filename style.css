@@ -75,14 +75,14 @@ h1,h2,h2{
   background-color: none;
   border: none;
   color: white;
-  background: url("img/search-icon.png") no-repeat scroll 4px 7px;
+  background: url("img/search-icon.png") no-repeat scroll 7px 7px;
   background-size: 24px auto;
   cursor: pointer;
 }
 
 #search-input:focus{
 
-  width: 200px;
+  width: 240px;
   border: 1px solid white;
   cursor: auto;
 }
@@ -124,7 +124,7 @@ h1,h2,h2{
 }
 
 .content{
-
+  min-width: 352px;
   background: #141414;
   padding: 5px;
   border: 1px solid lightblue;
@@ -167,7 +167,7 @@ h1,h2,h2{
 
 .item{
 
-  margin: 5px;
+  margin: 10px;
   width: 300px;
   height: 428px;
   transition: transform 0.4s;
@@ -217,11 +217,26 @@ h1,h2,h2{
   transform: rotateY( 180deg );
 }
 
-.info{
+.item .back .fa-times-circle{
 
+  position: absolute;
+  right:10px;
+  top: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  opacity: 0.7;
+  transition: opacity 0.3s ;
+}
+
+.item .back .fa-times-circle:hover{
+  opacity: 1;
+}
+
+.info{
+  padding: 10px ;
+  padding-top: 20px;
   display: flex;
   flex-direction: column;
-  padding: 10px ;
   width: 100%;
   height: 100%;
 }

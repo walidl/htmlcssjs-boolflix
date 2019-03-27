@@ -243,17 +243,16 @@ function selectFolder(){
 
 function clickItem(){
 
-  $(".filmList").on("click",".item",function(){
+  $(".filmList").on("click",".item",function(event){
 
-    if($(this).hasClass("flipped")){
-      $(this).removeClass("flipped")
-    }
-    else{
-      $(".filmList .item").removeClass("flipped")
-      $(this).addClass("flipped")
+    $(".filmList .item").removeClass("flipped");
+    $(this).addClass("flipped");
+
+    if( $(event.target).is(".fa-times-circle") ){
+
+      $(this).removeClass("flipped");
     }
   })
-
 }
 
 function setUpFolders(fold){
