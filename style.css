@@ -3,7 +3,7 @@
   box-sizing: border-box;
   margin: 0;
   padding:0;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 body{
@@ -15,6 +15,7 @@ body{
 ul{
 
   list-style: none;
+  padding-left: 0;
 }
 
 a, a:hover{
@@ -174,7 +175,6 @@ h1,h2,h2{
   transform-style: preserve-3d;
   position: relative;
   box-shadow:0 1px 4px rgba(173, 216, 230, 0.3), 0 0 40px rgba(173, 216, 230, 0.1) inset;
-
 }
 
 .item:hover{
@@ -229,10 +229,31 @@ h1,h2,h2{
 }
 
 .item .back .fa-times-circle:hover{
+
   opacity: 1;
 }
 
+.back div.more{
+
+  width: 100%;
+  padding: 5px;
+  text-align: center;
+  position: absolute;
+  bottom:10px;
+  cursor: pointer;
+}
+
+.more{
+
+  cursor: pointer;
+}
+.more:hover{
+
+  color: cornflowerblue;
+}
+
 .info{
+
   padding: 10px ;
   padding-top: 20px;
   display: flex;
@@ -260,15 +281,18 @@ h1,h2,h2{
 
   overflow-y:  hidden;
   text-overflow:  ellipsis;
+  font-size: 15px;
 }
 
 .info.tv-show{
 
   background-color: #f7ead9
 }
-.info .flag{
+.flag{
 
   height: 18px;
+  position: relative;
+  top: 5px;
 }
 
 .fa-star{
@@ -280,3 +304,159 @@ h1,h2,h2{
 
   color: #F7D800
 }
+
+
+/* INFOPAGE.... */
+
+.wrapper{
+
+  position: fixed;
+  top: 0;
+  left:0;
+  width: 100vw ;
+  height: 100vh;
+  background: rgba(0,0,0, 0.7);
+  z-index: 3;
+}
+
+.infoPage{
+
+  width: 70vw;
+  height: 90vh;
+  min-width: 645px;
+  min-height: 445px;
+  box-shadow: 0px 0px 8px 2px rgba(110,23,29,0.5);
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  padding-bottom: 10px;
+  background: #141414;
+  color: white;
+}
+
+.infoPage .head{
+
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  position: relative;
+  padding: 5px;
+}
+
+.infoPage .head .fa-arrow-left{
+
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  transition: left 0.1s ease ;
+  cursor: pointer;
+}
+
+.infoPage .head .fa-arrow-left:hover{
+
+  left: 18px;
+}
+
+.infoPage .body{
+
+  width: 100%;
+  height: calc( 100% - 50px);
+  display: flex;
+}
+
+.infoPage .body > *{
+
+  height: 100%;
+  padding : 0 20px;
+}
+
+.infoPage .left{
+
+  border-right: 1px solid black
+}
+
+.infoPage .left > ul li{
+
+ margin: 5px 0;
+ font-size: 14px;
+
+}
+.infoPage .left > ul li .etichetta{
+
+  color:lightblue;
+  font-size: 16px;
+}
+
+.infoPage h3{
+
+  color: #DC1A28;
+}
+
+.infoPage .right .description{
+
+  height: 40%;
+  padding-bottom: 10px;
+  border-bottom: 0.5px solid black;
+}
+
+.infoPage .right .description p {
+
+  height: calc(90% - 10px);
+  overflow-y: auto;
+  padding: 5px;
+  border-left: 1px solid #666;
+  border-top:1px solid #666;
+  font-size: 14px;
+}
+
+.infoPage .cast{
+
+  height: 60%;
+  padding-top: 10px;
+}
+
+.infoPage .cast .actors{
+
+  height: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  border-left: 1px solid #666;
+  padding:5px;
+  margin-top: 3px;
+  overflow: auto;
+  overflow-y: scroll;
+}
+
+.infoPage .cast .attore{
+
+  width: 100px;
+  padding: 5px;
+}
+
+.infoPage .right .attore img{
+
+  width: 100%;
+}
+
+/* Scroll bar  */
+
+.scroll::-webkit-scrollbar {
+
+    width: 3px;
+}
+
+.scroll::-webkit-scrollbar-track{
+
+  background-color: rgba(255,255,255,0.9);
+}
+
+.scroll::-webkit-scrollbar-thumb {
+
+  background-color: #666;
+  outline: 1px solid slategrey;
+}
+
+/* ----- */

@@ -5,7 +5,8 @@
     <!-- fontawesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet"> -->
     <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Moment js -->
@@ -14,19 +15,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js" charset="utf-8"></script>
       <!-- template -->
     <script id="film-template" type="text/x-handlebars-template">
-      <div class="item data-id='{{ id }}'">
+      <div class="item" data-id='{{ id }}' data-type ='{{ format }}' >
         <div class=" front">
            {{#if poster }}<img  class= "poster" src="{{ poster }}"> {{else}} <h2>{{ titolo }}</h2> {{/if}}
         </div>
         <div class= "back">
           <i class="far fa-times-circle"></i>
           <ul class="info {{tipo}}">
-            <li> <span class="etichetta">Titolo: </span> {{ titolo }}</li>
-            <li> <span class="etichetta">Titolo Originale: </span> {{ ogTitolo }} </li>
-             <li> <span class="etichetta">Lingua: </span> {{#if flag}} <img  class= "flag" src="{{ flag }}"> {{/if}} {{#if lingua }}  {{ lingua }} {{/if}}</li>
-            <li class="stars"> <span class="etichetta">Voto: </span>({{ rating }}) <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></li>
-            {{#if desc}}<li> <span class="etichetta">Overview </span><p class="desc">{{desc}} </p></li>{{/if}}
+            <li class="titolo"> <span class="etichetta">Titolo: </span> <span class="dato">{{ titolo }}</span></li>
+            <li class="titolo-orig"> <span class="etichetta">Titolo Originale: </span> <span class="dato">{{ ogTitolo }} </span></li>
+             <li class="lingua"> <span class="etichetta">Lingua: </span> <span class="dato">{{#if flag}} <img  class= "flag" src="{{ flag }}"> {{/if}} {{#if lingua }}  {{ lingua }} {{/if}}</span></li>
+            <li class="stars"> <span class="etichetta">Voto: </span><span class="dato"> <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span></li>
+            {{#if desc}}<li class="overview"> <span class="etichetta">Overview </span><p class="desc dato">{{{desc}}} </p></li>{{/if}}
           </ul>
+          <div class="more"> More info...</div>
         </div>
     </div>
 
@@ -37,13 +39,68 @@
 
     </script>
 
+    <script id="InfoPage-template" type="text/x-handlebars-template">
+
+      <div class="wrapper">
+        <div class="infoPage">
+
+        <div class=" head">
+          <i  id="goBack" class="fas fa-arrow-left"></i> <h1>{{ titolo }}</h1>
+        </div>
+
+        <div class="body">
+          <div class="left">
+            <img src="{{#if poster}} {{poster}} {{else}} img/no-image.jpg {{/if}}">
+
+            <ul>
+              <li> <span class="etichetta">Rating:&nbsp </span> {{{ stelle }}} </li>
+              <li> <span class="etichetta">Lingua:&nbsp </span> {{{ lingua }}}</li>
+              <li> <span class="etichetta">Generi:&nbsp </span> {{ generi }}</li>
+            </ul>
+
+          </div>
+          <div class="right">
+            {{#if overview}}
+            <div class="description">
+              <h3>Overview</h3>
+              <p class="scroll">  {{ overview }} </p>
+            </div>
+            {{/if}}
+            <div class="cast">
+              <h3>Top Cast</h3>
+              <div class="actors scroll">
+
+              </div>
+            </div>
+            </div>
+          </div>
+      </div>
+      </div>
+
+    </script>
+
+    <script id="actor-template" type="text/x-handlebars-template">
+
+      <div class="attore">
+        <img src="{{#if foto}} {{foto}} {{else}} img/noimage-actor.png {{/if}}">
+
+        <div>{{ attore}}</div>
+        <small>{{ personaggio }}</small>
+
+      </div>
+
+    </script>
+
     <!-- My style & script -->
 
     <link rel="stylesheet" href="style.css">
     <script src="script.js" charset="utf-8"></script>
-
+    <script src="moreInfo.js" charset="utf-8"></script>
     <title></title>
   </head>
+
+
+
   <body>
       <nav>
         <div class="container">

@@ -9,7 +9,7 @@ function printFilms(data,voto){
 
   // riempimento stelle
 
-  var stars = item.find("li.stars").children(".fa-star");
+  var stars = item.find("li.stars .dato").children(".fa-star");
 
   for (var i = 0; i < voto; i++) {
     stars.eq(i).addClass("accesa");
@@ -41,12 +41,12 @@ function getFlag(lang){
 
 function checkLength(string){
 
-  if ( string.length > 400){
+  if ( string.length > 300){
     var newString = ""
-    for (var i = 0; i < 400; i++) {
+    for (var i = 0; i < 300; i++) {
       newString += string[i];
     }
-    return newString + "(...)"
+    return newString + " <span class= 'more'>(...)</span>"
 
   }
 
@@ -65,6 +65,7 @@ function getResults(list,type){
     var dati = {
 
       id: item.id,
+      format: type,
       rating: voto,
       desc: checkLength(item.overview)
     }
