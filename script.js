@@ -145,13 +145,7 @@ function apiCall(search,page,type){
         genPages(inData.total_pages);
       }
 
-      if( type == "movie" && inData.total_results == 0 ){
-
-        $("#tvFolder").click();
-        $("#movieFolder").hide();
-      }
-
-      console.log(type , inData.page , inData.results.length );
+      // console.log(type , inData.page , inData.results.length );
       if(inData.total_results > 0){
 
         getResults(inData.results,type);
@@ -168,7 +162,7 @@ function genPages(pageNum){
 
   var pages = $(".pages");
 
-  console.log(pageNum);
+  // console.log(pageNum);
   for (var i = 1; i <= pageNum; i++) {
 
     var dati = {
@@ -256,26 +250,68 @@ function clickItem(){
   })
 }
 
-function setUpFolders(fold){
+function getTotalResult(search,type){
 
-  fold.children("#movieFolder").addClass("active");
-  fold.children("#tvFolder").removeClass("active");
-  fold.children(".sezione").show();
-  fold.css("pointer-events","auto")
+ var outData = {
+
+   api_key: "be7a5b068bb701d40ef499c039960c53",
+   language: "it-IT",
+   query: search,
+  }
+
+  var url = "https://api.themoviedb.org/3/search/" + type;
+
+  $.ajax({
+
+    url: url,
+    data: outData,
+    method: "GET",
+
+    success: function(inData, stato){
+
+      var num = "( " + inData.total_results + " )";
+
+      if(type == "movie"){
+
+        var item = $("#movieFolder");
+
+        getTotalResult(search,"tv");
+      }
+
+      else if(type == "tv"){
+
+        var item = $("#tvFolder");
+        if( $("#movieFolder .resNumb").text()  == "( 0 )" && inData.total_results != 0){
+          item.click()
+        }
+        else{
+
+          $("#movieFolder").click()
+        }
+        $(".folders").css("pointer-events","auto");
+      }
+
+      item.children(".resNumb").text(num);
+
+    },
+    error: function(request, stato ,error){
+
+      console.log("error");
+    }
+  })
 }
 
 function init(){
 
 
   var srcImp = $("#search-input");
-  var folders = $(".folders");
 
   srcImp.keyup(function(e){
 
     if(e.keyCode == 13 ){
 
-      setUpFolders(folders)
-      getVal("movie");
+    getTotalResult($(this).val(),"movie");
+    getVal("movie");
     }
   });
 

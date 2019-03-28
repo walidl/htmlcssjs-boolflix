@@ -66,12 +66,13 @@
               <p class="scroll">  {{ overview }} </p>
             </div>
             {{/if}}
+            {{#if cast}}
             <div class="cast">
               <h3>Top Cast</h3>
               <div class="actors scroll">
-
               </div>
             </div>
+            {{/if}}
             </div>
           </div>
       </div>
@@ -96,7 +97,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js" charset="utf-8"></script>
     <script src="moreInfo.js" charset="utf-8"></script>
-    <title></title>
+    <title> Boolflix</title>
   </head>
 
 
@@ -106,28 +107,37 @@
         <div class="container">
           <div class="bar">
             <a class= "logo" href="#"><img src="img/logo.png"></a>
-            <!-- <button id="search-button"type="button" name="button"> Search </button> -->
-            <input id="search-input"type="text" name="" placeholder="Film , Tv-show"  value="matrix">
+            <input id="search-input"type="text" name="" placeholder="Film , Tv-show"  value="back to the future">
 
           </div>
       </div>
       </nav>
     <section>
       <div class="container">
+
+        <!-- Cartelle Film e Tv-series -->
+
         <div class="folders">
           <div class="sezione active" id= "movieFolder">
-            Films
+            Films <small class="resNumb"></small>
           </div>
-          <div class="sezione " id = "tvFolder">
-            Tv-series
+          <div class="sezione" id = "tvFolder">
+            Tv-series <small class="resNumb"></small>
           </div>
         </div>
+
+        <!-- Contenuto della cartella -->
         <div class="content">
+          <!-- Pagine -->
         <div class="pages">
 
         </div>
+
+          <!-- Lista contenuti multimediali -->
+
         <div class="filmList">
-          <h1>Lista film</h1>
+
+          <h1>Welcome to Boolflix <br> <small>Search something to get started</small></h1>
 
         </div>
 

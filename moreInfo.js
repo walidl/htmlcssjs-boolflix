@@ -1,5 +1,6 @@
 var cacheData = {}
 
+// genero la lista di attori da actor-template 
 
 function generateActor(ind){
 
@@ -8,6 +9,9 @@ function generateActor(ind){
   var res = comp(cacheData.cast[ind]);
   return res;
 }
+
+// creo il template infoPage con  i dati di cacheData
+
 function createInfoPage(){
 
   var fList = $(".filmList")
@@ -17,14 +21,19 @@ function createInfoPage(){
 
   var item = $(res);
   var actors = item.find(".cast .actors");
+  if(cacheData.cast != ""){
 
-  for (var i = 0; i < cacheData.cast.length; i++) {
-    actors.append(generateActor(i));
+    for (var i = 0; i < cacheData.cast.length; i++) {
+      actors.append(generateActor(i));
+    }
+
   }
 
   item.appendTo(fList)
 
 }
+
+// Chiamata api per prendere al massimo i primi 5 attori
 
 function getCast(id,type){
 
@@ -45,6 +54,11 @@ function getCast(id,type){
 
       var n = 5;
       if(inData.cast.length < 5) n = inData.cast;
+      else if (inData.cast.length == 0 ) {
+        cacheData.cast = "";
+        return;
+      }
+
       cacheData.cast = [];
       for (var i = 0 ; i < n ; i++) {
 
@@ -62,7 +76,7 @@ function getCast(id,type){
         })
       }
 
-      console.log(cacheData);
+      // console.log(cacheData);
 
       createInfoPage();
 
@@ -72,8 +86,9 @@ function getCast(id,type){
       console.log("error");
     }
   })
-
 }
+
+// Faccio una chiamata api  per prendere il poster e la descrizione e i generi
 
 function getImgDesc(id,type){
 
@@ -117,6 +132,8 @@ function getImgDesc(id,type){
 
 }
 
+// Prendo i dati già presenti nel div film
+
 function getData(){
 
 
@@ -135,14 +152,16 @@ function getData(){
   })
 }
 
-function clickArrow(){
+function closeWindow(){
 
   $(".filmList").on("click",".wrapper",function(event){
 
-    console.log("goBack");
-    if($(event.target).is("#goBack")){
+    if($(event.target).is("#goBack") ){
+
       $(this).fadeOut(300,function(){
+
         $(this).remove();
+        event.stopPropagation();
       })
     }
   })
@@ -151,7 +170,7 @@ function clickArrow(){
 function init2(){
 
   getData();
-  clickArrow();
+  closeWindow();
 
 }
 $(document).ready(init2)
