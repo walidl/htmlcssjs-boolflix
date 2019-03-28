@@ -212,6 +212,12 @@ h1,h2,h2{
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+}
+
+.item .front img{
+
+  width: 100%;
 }
 
 .item .back{
@@ -356,6 +362,7 @@ h1,h2,h2{
 }
 
 .infoPage .head h1{
+
   padding-left: 40px;
 }
 
@@ -402,6 +409,7 @@ h1,h2,h2{
 .infoPage .left > ul li .etichetta{
 
   color:lightblue;
+  font-weight: 600;
   font-size: 16px;
 }
 
@@ -414,7 +422,7 @@ h1,h2,h2{
 
   height: 40%;
   padding-bottom: 10px;
-  border-bottom: 0.5px solid black;
+  /* border-bottom: 0.5px solid black; */
 }
 
 .infoPage .right .description p {
@@ -422,7 +430,6 @@ h1,h2,h2{
   height: calc(90% - 10px);
   overflow-y: auto;
   padding: 5px;
-  border-left: 1px solid #666;
   border-top:1px solid #666;
   font-size: 14px;
 }
@@ -438,17 +445,27 @@ h1,h2,h2{
   height: 90%;
   display: flex;
   flex-wrap: wrap;
-  border-left: 1px solid #666;
+  border-top: 1px solid #666;
   padding:5px;
   margin-top: 3px;
-  overflow: auto;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .infoPage .cast .attore{
 
-  width: 100px;
-  padding: 5px;
+  width: 120px;
+  margin: 5px;
+  padding: 10px;
+}
+
+.infoPage .cast .attore .name{
+
+  font-weight: bold;
+}
+
+.infoPage .cast .attore .personaggio{
+
+  color:cadetblue
 }
 
 .infoPage .right .attore img{

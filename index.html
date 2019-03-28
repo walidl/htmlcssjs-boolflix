@@ -5,8 +5,7 @@
     <!-- fontawesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
-    <!-- <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
     <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Moment js -->
@@ -85,8 +84,8 @@
       <div class="attore">
         <img src="{{#if foto}} {{foto}} {{else}} img/noimage-actor.png {{/if}}">
 
-        <div>{{ attore}}</div>
-        <small>{{ personaggio }}</small>
+        <div class="name">{{ attore}}</div>
+        <small class="personaggio">{{ personaggio }}</small>
 
       </div>
 

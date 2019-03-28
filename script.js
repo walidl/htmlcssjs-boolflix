@@ -74,7 +74,7 @@ function getResults(list,type){
 
     if (item.poster_path != null){
 
-      dati.poster = "https://image.tmdb.org/t/p/w300/" + item.poster_path;
+      dati.poster = "https://image.tmdb.org/t/p/w342/" + item.poster_path;
     }
     else{
       dati.poster = ""
