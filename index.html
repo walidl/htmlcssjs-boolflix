@@ -23,7 +23,7 @@
           <ul class="info {{tipo}}">
             <li class="titolo"> <span class="etichetta">Titolo: </span> <span class="dato">{{ titolo }}</span></li>
             <li class="titolo-orig"> <span class="etichetta">Titolo Originale: </span> <span class="dato">{{ ogTitolo }} </span></li>
-             <li class="lingua"> <span class="etichetta">Lingua: </span> <span class="dato">{{#if flag}} <img  class= "flag" src="{{ flag }}"> {{/if}} {{#if lingua }}  {{ lingua }} {{/if}}</span></li>
+             <li class="lingua"> <span class="etichetta">Lingua: </span> <span class="dato">{{#if flag}} <img  class= "flag" src="{{ flag }}"> {{else}} {{ lingua }} {{/if}}</span></li>
             <li class="stars"> <span class="etichetta">Voto: </span><span class="dato"> <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span></li>
             {{#if desc}}<li class="overview"> <span class="etichetta">Overview </span><p class="desc dato">{{{desc}}} </p></li>{{/if}}
           </ul>
@@ -106,7 +106,7 @@
         <div class="container">
           <div class="bar">
             <a class= "logo" href="#"><img src="img/logo.png"></a>
-            <input id="search-input"type="text" name="" placeholder="Film , Tv-show"  value="back to the future">
+            <input id="search-input"type="text" name="" placeholder="Film , Tv-show">
 
           </div>
       </div>

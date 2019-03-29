@@ -99,19 +99,8 @@ function getResults(list,type){
 
     // gestione bandiere
 
-    var flagUrl = getFlag(item.original_language);
-
-    if( flagUrl != ""){
-
-      dati.lingua = "";
-      dati.flag = flagUrl;
-    }
-
-    else{
-
-      dati.lingua = item.original_language;
-      dati.flag = "";
-    }
+    dati.flag = getFlag(item.original_language);
+    dati.lingua = item.original_language;    
 
     printFilms(dati,voto);
   }
