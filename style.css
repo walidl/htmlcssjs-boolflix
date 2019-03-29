@@ -36,6 +36,35 @@ input:focus {
   margin: auto;
 }
 
+#goUp{
+
+  display: flex;
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  bottom:100px;
+  right:-50px;
+  transition: right 0.5s ease;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  color: rgba(255,255,255,0.5);
+  box-shadow: 0px 0px 8px 3px rgba(110,23,29,0.5);
+
+  border-radius:50%;
+  cursor: pointer;
+}
+
+#goUp.show-up{
+
+  right: calc( 5% - 20px ); /* a metà fra la fine del container e il bordo pagina*/
+}
+
+#goUp:hover{
+  color: rgba(255,255,255,0.85);
+  box-shadow: 0px 0px 8px 5px rgba(110,23,29,0.7);
+}
+
 nav{
 
   height: 70px;
@@ -65,20 +94,38 @@ h1,h2,h2{
   color: white;
 }
 
+.search{
+
+  display: flex;
+  align-items: center;
+  height: 40px;
+  width: 240px;
+  border: 1px solid white;
+}
+#searchButton{
+
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#searchButton img{
+
+  width: 24px;
+  cursor: pointer;
+}
+
 #search-input{
 
   padding-bottom: 5px;
-  padding-right: 40px;
-  padding-left: 10px;
+  padding: 5px 10px;
   height: 40px;
-  width: 240px;
-  transition: width 0.3s ease-in;
-  border: 1px solid white;
+  width: 200px;
   font-size: 18px;
-  background-color: none;
+  border: none;
+  background: none;
   color: white;
-  background: url("img/search-icon.png") no-repeat scroll 207px 7px;
-  background-size: 24px auto;
 }
 
 .folders{

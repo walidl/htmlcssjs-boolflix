@@ -100,7 +100,7 @@ function getResults(list,type){
     // gestione bandiere
 
     dati.flag = getFlag(item.original_language);
-    dati.lingua = item.original_language;    
+    dati.lingua = item.original_language;
 
     printFilms(dati,voto);
   }
@@ -281,7 +281,6 @@ function getTotalResult(search,type){
       }
 
       item.children(".resNumb").text(num);
-
     },
     error: function(request, stato ,error){
 
@@ -290,8 +289,31 @@ function getTotalResult(search,type){
   })
 }
 
+function scrollButton(item){
+
+  $(window).scroll(function() {
+
+    if ($(this).scrollTop()> 700)
+     item.addClass("show-up");
+    else
+     {
+      item.removeClass("show-up");
+     }
+ });
+
+ item.click(function(){
+
+  window.scrollTo({
+  top: 0,
+  behavior: 'smooth'
+});
+ })
+}
+
 function init(){
 
+  var goUp =$("#goUp");
+  scrollButton(goUp);
 
   var srcImp = $("#search-input");
 
@@ -304,9 +326,18 @@ function init(){
     }
   });
 
+  var btn = $("#searchButton");
+
+  btn.click(function(){
+
+    getTotalResult(srcImp.val(),"movie");
+    getVal("movie");
+  })
+
   selectFolder()
   clickPage();
   clickItem();
+
 }
 
 $(document).ready(init)
