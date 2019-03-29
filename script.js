@@ -39,11 +39,11 @@ function getFlag(lang){
   }
 }
 
-function checkLength(string){
+function checkLength(string, chars){
 
-  if ( string.length > 300){
+  if ( string.length > chars){
     var newString = ""
-    for (var i = 0; i < 300; i++) {
+    for (var i = 0; i < chars; i++) {
       newString += string[i];
     }
     return newString + " <span class= 'more'>(...)</span>"
@@ -67,7 +67,7 @@ function getResults(list,type){
       id: item.id,
       format: type,
       rating: voto,
-      desc: checkLength(item.overview)
+      desc: checkLength(item.overview,250)
     }
 
     //gestione poster

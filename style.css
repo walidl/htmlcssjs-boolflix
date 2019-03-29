@@ -290,15 +290,28 @@ h1,h2,h2{
 }
 
 .back div.more{
-
-  width: 100%;
-  padding: 8px 0;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height:30px;
+  border-radius: 12px;
+  background-color: rgba(136, 206, 150,0.9);
+  color: white;
+  transition: background-color 0.3s;
+  transition: width 0.3s;
   position: absolute;
-  bottom:0px;
+  bottom:5px;
+  left:50%;
+  transform: translateX(-50%);
   cursor: pointer;
 }
 
+.back div.more:hover{
+  width: 220px;
+  color: white;
+  background-color: rgba(136, 206, 150,1);
+}
 
 .more{
 
