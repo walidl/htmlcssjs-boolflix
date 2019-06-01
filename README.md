@@ -10,7 +10,7 @@ HTML, CSS, Flex, <br>  <b>Javascript, Jquery, AJAX, API, Hadlebars.js, </b><br>
 
 <p>Gives the user the possibility to search for movies and tv-series by title.
 The results are then organized by pages and divided into two main folders (movies and tv-series).</p>
-<p>The user can access the first set of general info present in each one of the movie cards by clicking on a movie poster, he can then access a more detailed set of info that appears in the center of the page as can be seen [here](#animation).</p>
+<p>The user can access the first set of general info present in each one of the movie cards by clicking on a movie poster, he can then access a more detailed set of info that appears in the center of the page as can be seen in the animation at the end .</p>
 
 
 ##### Details
