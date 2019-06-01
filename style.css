@@ -290,6 +290,7 @@ h1,h2,h2{
 }
 
 .back div.more{
+  
   display: flex;
   justify-content: center;
   align-items: center;
@@ -308,6 +309,7 @@ h1,h2,h2{
 }
 
 .back div.more:hover{
+
   width: 220px;
   color: white;
   background-color: rgba(136, 206, 150,1);
